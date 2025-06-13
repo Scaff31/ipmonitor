@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.png') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Tableau de Bord IP Monitor</h1>
+
+        <div class="controls">
+            <div class="view-toggle">
+                <button id="listViewBtn" class="active">Liste</button>
+                <button id="tileViewBtn">Tuiles</button>
+            </div>
+
+            <select id="filterStatus">
+                <option value="all">Tous les statuts</option>
+                <option value="up">Up</option>
+                <option value="down">Down</option>
+            </select>
+
+            <select id="displayMode">
+                <option value="used">IPs Utilisées</option>
+                <option value="all">Toutes les IPs du réseau</option>
+                <option value="free">IPs Libres</option>
+            </select>
+            
+            <button id="scanNetworkBtn">Scanner le Réseau</button>
+        </div>
+
+        <div class="ip-counts">
+            <div class="count-item">Total IPs affichées : <span id="totalIpCount">0</span></div>
+            <div class="count-item status-up">IPs Up : <span id="upIpCount">0</span></div>
+            <div class="count-item status-down">IPs Down : <span id="downIpCount">0</span></div>
+        </div>
+
+        <div class="add-ip-section">
+            <h3>Ajouter une IP manuellement</h3>
+            <div class="add-ip-form">
+                <input type="text" id="newIp" placeholder="Adresse IP (ex: 192.168.1.10)">
+                <input type="text" id="newHostname" placeholder="Nom d'hôte (optionnel)">
+                <button id="addIpBtn">Ajouter</button>
+            </div>
+        </div>
+
+        <div id="ipDisplayContainer" class="list-view ip-list-container">
+            <table id="ipTable">
+                <thead>
+                    <tr>
+                        <th>IP</th>
+                        <th>Nom d'hôte</th>
+                        <th>Statut</th>
+                        <th>Dernier Scan</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+            <div id="noIpMessage" style="display: none;">
+                Aucune adresse IP à afficher avec les filtres actuels.
+            </div>
+            </div>
+    </div>
+
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <p>Êtes-vous sûr de vouloir supprimer cette IP (<span id="modalIpAddress"></span>) ? Cette action est irréversible.</p>
+            <div class="modal-buttons">
+                <button id="confirmDeleteBtn" class="delete-btn">Oui, supprimer</button>
+                <button id="cancelDeleteBtn" class="cancel">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
