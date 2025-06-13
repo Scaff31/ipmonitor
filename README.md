@@ -13,6 +13,5 @@ Bienvenue sur IP Monitor ! Cette application web simple vous permet de surveille
 
 📸 Aperçu de l'Application
 
-Voici à quoi ressemble l'application en action :
 
 ![firefox_1BSRKVZ0wq](https://github.com/user-attachments/assets/cb88d09c-efd8-4e2d-9d21-f6073250f1f8)
