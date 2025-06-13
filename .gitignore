@@ -1,11 +1,50 @@
-# Ignorer les fichiers temporaires de Python
+# Python
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
 
-# Ignorer la base de données SQLite
+# Environnement virtuel
+venv/
+env/
+.env
+.venv/
+
+# Base de données
+*.db
 site.db
 
-# Ignorer l'environnement virtuel Python
-venv/
-
-# Ignorer les logs générés par l'application si vous en avez
+# Logs
 *.log
+
+# Fichiers de configuration locale (si vous en avez)
+*.conf.local
+*.env
+.flaskenv
+
+# Fichiers système et IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+.project
+.settings/
+
+# Fichiers spécifiques au serveur ou temporaires
+*.sock
+*.sqlite3
+
+# Fichiers d'historique personnel (à ignorer absolument)
+.bash_history
+.bash_logout
+.bashrc
+.cache/
+.local/
+.profile
+.wget-hsts
+
+# Dossiers spécifiques de packages ou d'artefacts de build
+dist/
+build/
