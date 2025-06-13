@@ -124,3 +124,35 @@ python import_new_db.py
 nano import_new_db.py
 python import_new_db.py
 deactivate
+cd ip_monitor_app/
+source venv/bin/activate
+nano export_data.py 
+python export_data.py 
+nano import_new_db.py 
+python import_new_db.py
+deactivate
+cd..
+cd ..
+ll
+ls
+tar -cvf ip_monitor.tar ip_monitor_app/
+ll
+ls
+rm ip_monitor.tar 
+cd ip_monitor_app/
+ll
+ls
+cd ...
+cd ..
+tar -cvf ip_monitor.tar ip_monitor_app/
+cd ip_monitor_app/
+source venv/bin/activate
+pip freeze > requirements.txt
+ll
+deactivate
+ll
+ls
+ls -al
+cat requirements.txt 
+cd ..
+tar -cvf ip_monitor.tar ip_monitor_app/

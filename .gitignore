@@ -1,0 +1,11 @@
+# Ignorer les fichiers temporaires de Python
+__pycache__/
+
+# Ignorer la base de données SQLite
+site.db
+
+# Ignorer l'environnement virtuel Python
+venv/
+
+# Ignorer les logs générés par l'application si vous en avez
+*.log
