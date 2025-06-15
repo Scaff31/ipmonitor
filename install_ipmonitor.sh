@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # --- Configuration ---
-REPO_URL="https://github.com/Scaff31/ipmonitor.git" 
-APP_DIR="/var/www/ipmonitor"                       # Répertoire où l'application sera installée
+REPO_URL="https://github.com/Scaff31/ipmonitor.git"  
+APP_DIR="/var/www/ipmonitor"                      # Répertoire où l'application sera installée
 SERVICE_NAME="ipmonitor"
 VENV_DIR="venv"
 GUNICORN_WORKERS=3 # Nombre de workers Gunicorn, ajuster selon les ressources du serveur
@@ -39,6 +39,13 @@ apt update && apt upgrade -y || log_error "Échec de la mise à jour du système
 # --- 2. Installation des dépendances système ---
 log_info "Installation des dépendances système : Python3, pip, python3-venv, git, nginx, nmap..."
 apt install -y python3 python3-pip python3-venv git nginx nmap || log_error "Échec de l'installation des dépendances système."
+
+# --- AJOUT ICI : Configuration des permissions setuid pour Nmap ---
+log_info "Configuration des permissions setuid pour Nmap..."
+# Ceci est essentiel pour que Nmap puisse effectuer des scans bas niveau
+# même lorsqu'il est exécuté par un utilisateur non-root (comme www-data)
+chmod u+s /usr/bin/nmap || log_error "Échec de la configuration des permissions setuid pour Nmap."
+log_info "Permissions Nmap mises à jour : $(ls -l /usr/bin/nmap | awk '{print $1}')"
 
 # --- 3. Création du répertoire de l'application et clonage du dépôt Git ---
 log_info "Création du répertoire de l'application et clonage du dépôt Git..."
@@ -117,7 +124,7 @@ cat <<EOF > /etc/nginx/sites-available/$SERVICE_NAME
 server {
     listen 80;
     server_name _; # Utilise l'adresse IP du serveur par défaut.
-                   # Si vous avez un nom de domaine, remplacez '_' par 'votre_domaine.com'.
+                    # Si vous avez un nom de domaine, remplacez '_' par 'votre_domaine.com'.
 
     location / {
         include proxy_params;
