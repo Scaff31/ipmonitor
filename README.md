@@ -34,6 +34,7 @@ Installation et Démarrage
 
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Scaff31/ipmonitor/main/install_ipmonitor.sh)"
 
+Note : Le script d'installation s'occupe de toutes les étapes initiales (clonage du dépôt, installation des dépendances).
 
 🦊 Extension Firefox
 
