@@ -1,6 +1,7 @@
 🚀 IP Monitor - Surveillance et Gestion de Réseau
 
 Bienvenue sur IP Monitor ! Cette application web simple vous permet de surveiller l'état (Up/Down) des adresses IP de votre réseau, de gérer les hostnames associés, et d'obtenir des informations sur les scans. Idéal pour avoir un aperçu rapide de la disponibilité de vos équipements.
+
 ✨ Fonctionnalités Clés
 
     Ajout d'IPs Manuellement : Ajoutez facilement de nouvelles adresses IP et leurs hostnames associés.
@@ -15,6 +16,24 @@ Bienvenue sur IP Monitor ! Cette application web simple vous permet de surveille
 
 
 ![firefox_1BSRKVZ0wq](https://github.com/user-attachments/assets/cb88d09c-efd8-4e2d-9d21-f6073250f1f8)
+
+Prérequis
+
+    Un système d'exploitation compatible (Linux)
+
+    curl (généralement préinstallé ou facile à installer)
+
+    L'accès au réseau pour permettre le scan des IPs.
+
+Installation et Démarrage
+
+    Exécutez le script d'installation (recommandé) :
+    Le script install_ipmonitor.sh est disponible à la racine du dépôt. Il va cloner le dépôt, installer les dépendances Python nécessaires (pip, Flask, Flask-SQLAlchemy, python-nmap, APScheduler), configurer la base de données SQLite (instance/ip_monitor.db), et préparer l'environnement.
+
+    Pour lancer l'installation, ouvrez un terminal et exécutez cette commande :
+
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Scaff31/ipmonitor/main/install_ipmonitor.sh)"
+
 
 🦊 Extension Firefox
 
@@ -43,7 +62,7 @@ Pour installer l'extension IP Monitor dans Firefox, suivez ces étapes :
 
         Une boîte de dialogue d'installation apparaîtra, vous demandant de confirmer l'ajout de l'extension. Cliquez sur "Ajouter" (ou "Add").
 
-        L'extension sera installée et son icône (généralement un petit écran ou un œil) apparaîtra dans votre barre d'outils Firefox.
+        L'extension sera installée et son icône apparaîtra dans votre barre d'outils Firefox.
 
 Utilisation de l'Extension
 
@@ -51,7 +70,7 @@ Utilisation de l'Extension
 
         Lors de la première ouverture de l'extension (en cliquant sur son icône dans la barre d'outils ou en ouvrant le panneau latéral pour la première fois), une page de configuration vous sera présentée.
 
-        Veuillez entrer l'adresse IP (et le port si nécessaire, ex: 192.168.0.6:5000 ou localhost:5000) de votre serveur IP Monitor local.
+        Veuillez entrer l'adresse IP de votre serveur IP Monitor local.
 
         Cliquez sur "Enregistrer l'IP du serveur". Une fois enregistrée, l'extension se connectera automatiquement à ce serveur.
 
